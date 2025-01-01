@@ -10,8 +10,12 @@ import { Component, Input, input } from '@angular/core';
 })
 export class NavbarComponent {
   @Input() cartNum!: number
+  isEmpty:boolean=false
   isMenuOpen = false;
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+  remove():void{
+    this.isEmpty=true
   }
 }
