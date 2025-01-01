@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import { NgFor } from '@angular/common';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  private readonly _ToastrService = inject(ToastrService)
   productImages: string[] = [
     './assets/images/image-product-1.jpg',
     './assets/images/image-product-2.jpg',
@@ -49,6 +51,11 @@ export class HomeComponent {
 
   addToCart(): void {
     this.addCartNum = this.quantity
+    if (this.addCartNum!==0) {
+      this._ToastrService.success("Add Success")
+    }else{
+      this._ToastrService.error("You must add at least one item")
+    }
     console.log(`Added ${this.addCartNum} items to the cart.`);
   }
 
