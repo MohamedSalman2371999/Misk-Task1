@@ -1,5 +1,6 @@
 import { NgIf } from '@angular/common';
-import { Component, Input, input } from '@angular/core';
+import { Component, inject, Input, input } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-navbar',
@@ -9,6 +10,7 @@ import { Component, Input, input } from '@angular/core';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
+  private readonly _ToastrService = inject(ToastrService)
   @Input() cartNum!: number
   isEmpty:boolean=false
   isMenuOpen = false;
@@ -17,5 +19,7 @@ export class NavbarComponent {
   }
   remove():void{
     this.isEmpty=true
+    this._ToastrService.error("Item deleted")
+
   }
 }
