@@ -20,6 +20,7 @@ export class HomeComponent {
   selectedImage: string = this.productImages[0];
   imgNum: number = 0
   selectedImageIndex: number = 0;
+  selectedImageIndexmodel: number = 0;
   selectedImageModel: string = this.productImages[0];
   imgNumModel: number = 0
   addCartNum: number = 0
@@ -27,7 +28,13 @@ export class HomeComponent {
 
   selectImage(index: number): void {
     this.selectedImageIndex = index;
+    this.selectedImageIndexmodel = index;
     this.selectedImage = this.productImages[index];
+    this.selectedImageModel = this.productImages[index];
+  }
+  selectImageModel(index: number): void {
+    this.selectedImageIndexmodel = index;
+    this.selectedImageModel = this.productImages[index];
   }
 
   incrementQuantity(): void {
