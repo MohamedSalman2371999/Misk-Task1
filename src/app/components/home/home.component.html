@@ -1,0 +1,110 @@
+<app-navbar [cartNum]="addCartNum"></app-navbar>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-6 d-flex justify-content-center">
+        <div class="imgsContainer position-relative">
+            <div class="arrowsContainer">
+                <span class="left cr bg-white text-black shadow py-2 px-3 rounded-circle" (click)="prev()">
+                    <i class="fa-solid fa-angle-left"></i>
+                </span>
+                <span class="right cr bg-white text-black shadow py-2 px-3 rounded-circle" (click)="next()">
+                    <i class="fa-solid fa-angle-right"></i>
+                </span>
+            </div>
+            <img
+            data-bs-toggle="modal" data-bs-target="#exampleModal2"
+              [src]="selectedImage"
+              class="img-fluid main-image mb-3"
+              alt="Product Image"
+            />
+            <div class="d-flex justify-content-center imgs">
+              @for (image of productImages; track $index) {
+              <img 
+                [src]="image"
+                class="img-thumbnail thumbnail me-2"
+                [class.active]="$index === selectedImageIndex"
+                (click)="selectImage($index)"
+                alt="Thumbnail"
+              />
+              }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+      <p class="text-uppercase text-muted fw-bold mt-5">Sneaker Company</p>
+      <h1 class="display-6">Fall Limited Edition Sneakers</h1>
+      <p>
+        These low-profile sneakers are your perfect casual wear companion.
+        Featuring a durable rubber outer sole, they'll withstand everything the
+        weather can offer.
+      </p>
+      <div class="price-section">
+        <div class="priceLeftSide">
+            <h2 class="text-black">
+              $125.00 <span class="badge bg-dark ">50%</span>
+            </h2>
+        </div>
+        <p class="text-decoration-line-through text-muted">$250.00</p>
+      </div>
+      <div class="cartFooter d-flex align-items-center">
+          <div class="d-flex align-items-center me-2 mt-3">
+            <button class="increaseDecrease btn btn-outline-secondary" (click)="decrementQuantity()">
+              -
+            </button>
+            <input
+              type="number"
+              [(ngModel)]="quantity"
+              class="inputQuantity form-control mx-2 text-center"
+              style="width: 60px"
+            />
+            <button class="increaseDecrease btn btn-outline-secondary" (click)="incrementQuantity()">
+              +
+            </button>
+          </div>
+          <button class="addCard btn btn-lg w-100 mt-3" (click)="addToCart()">
+            <i class="fa-solid fa-cart-shopping me-2"></i>
+            Add to Cart
+          </button>     
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="btn d-block ms-auto p-3" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-x"></i></button>
+        <div class="modal-body">
+            <div class="col-md-12 d-flex justify-content-center">
+                <div class="imgsContainer w-75 position-relative">
+                    <div class="modeleArrowsContainer">
+                        <span class="left cr bg-white text-black shadow py-2 px-3 rounded-circle" (click)="prevModel()">
+                            <i class="fa-solid fa-angle-left"></i>
+                        </span>
+                        <span class="right cr bg-white text-black shadow py-2 px-3 rounded-circle" (click)="nextModel()">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </span>
+                    </div>
+                    <img
+                    data-bs-toggle="modal" data-bs-target="#exampleModal2"
+                      [src]="selectedImageModel"
+                      class="img-fluid main-image mb-3 w-100"
+                      alt="Product Image"
+                    />
+                    <div class="d-flex justify-content-center imgs">
+                      @for (image of productImages; track $index) {
+                      <img 
+                        [src]="image"
+                        class="img-thumbnail thumbnail me-2"
+                        [class.active]="$index === selectedImageIndex"
+                        (click)="selectImage($index)"
+                        alt="Thumbnail"
+                      />
+                      }
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

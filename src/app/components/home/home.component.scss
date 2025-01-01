@@ -1,0 +1,115 @@
+.imgsContainer {
+  width: 70%;
+}
+.arrowsContainer {
+  display: none;
+  width: 110%;
+  position: absolute;
+  top: 40%;
+  left: -5%;
+}
+.modeleArrowsContainer {
+  width: 110%;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 40%;
+  left: -5%;
+}
+.cr {
+  cursor: pointer;
+}
+.main-image {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.thumbnail.active {
+  border-color: orange;
+  opacity: 0.8;
+}
+
+.price-section {
+  display: block;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+img.img-thumbnail.thumbnail.me-2.active {
+  opacity: 0.4;
+}
+.increaseDecrease {
+  color: orange;
+  font-weight: bold;
+}
+.addCard {
+  font-size: 0.9375rem;
+  font-weight: bold;
+  color: black;
+  background-color: #ec6e07;
+}
+.modal-dialog {
+  background-color: transparent !important;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.modal-content {
+  background-color: #7f7f7f00;
+  border: none;
+}
+.modal button{
+    font-size: 18px !important;
+}
+.modal button:hover{
+    color: #ec6e07;
+}
+@media (max-width: 768px) {
+  .imgs {
+    display: none !important;
+  }
+  .imgsContainer {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .arrowsContainer {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 40%;
+    left: 5%;
+  }
+  .inputQuantity {
+    width: 100% !important;
+  }
+  .addCard {
+    width: 100%;
+  }
+  .cartFooter {
+    display: block !important;
+  }
+  .price-section {
+    display: flex;
+    justify-content: space-between;
+  }
+  .model {
+    display: none;
+  }
+}
